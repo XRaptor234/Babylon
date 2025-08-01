@@ -5,7 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Babylon - AI Village</title>
   <style>
-   <body>
+    body {
+      background-color: #f2f1e6;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .villager {
+      border: 2px solid #333;
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #fffbe0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .villager:hover {
+      transform: scale(1.05);
+      background-color: #fff3b0;
+    }
+    #modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fffbe0;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      min-width: 300px;
+    }
+    .modal-content button {
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .visit {
+      background-color: #aad3c1;
+    }
+    .close {
+      background-color: #f5c6c6;
+    }
+  </style>
+</head>
+
+<body>
   <h1>Welcome to Babylon 🏛️</h1>
 
   <div class="villager" onclick="openModal('ChatGPT', 'https://chat.openai.com')">🧠 ChatGPT</div>
@@ -15,12 +77,12 @@
   <div class="villager" onclick="openModal('Character AI', 'https://beta.character.ai')">👾 Character AI</div>
 
   <!-- Modal -->
-  <div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
-    <div style="background:#fffbe0; padding:20px; border-radius:15px; text-align:center; min-width:300px;">
+  <div id="modal">
+    <div class="modal-content">
       <h2 id="modal-title">Villager says hi!</h2>
-      <p style="margin-bottom:20px;">Wanna visit this AI tool?</p>
-      <button id="visit-btn" style="padding:10px 20px; margin-right:10px; background:#aad3c1; border:none; border-radius:8px;">Yes, take me there!</button>
-      <button onclick="closeModal()" style="padding:10px 20px; background:#f5c6c6; border:none; border-radius:8px;">No, maybe later</button>
+      <p>Wanna visit this AI tool?</p>
+      <button id="visit-btn" class="visit">Yes, take me there!</button>
+      <button onclick="closeModal()" class="close">No, maybe later</button>
     </div>
   </div>
 
@@ -45,12 +107,5 @@
       }
     });
   </script>
-</body>
-  <h1>Welcome to Babylon 🏛️</h1>
-  <div class="villager" onclick="alert('ChatGPT says hi!')">🧠 ChatGPT</div>
-  <div class="villager" onclick="alert('Perplexity is curious about your questions!')">🔍 Perplexity</div>
-  <div class="villager" onclick="alert('Quillbot AI Checker is analyzing...')">📝 Quillbot Checker</div>
-  <div class="villager" onclick="alert('Humaniser wants to make you sound smooth!')">🎤 Humaniser</div>
-  <div class="villager" onclick="alert('Character AI is ready to roleplay!')">👾 Character AI</div>
 </body>
 </html>
